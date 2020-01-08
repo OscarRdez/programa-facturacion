@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+		crossorigin="anonymous">
+		
+	<title>Listado Clientes</title>
+</head>
+<body>
+
+<!-- As a heading -->
+	<div class="container">
+		<h3>Lista Clientes</h3>
+		<!-- <hr>
+
+		<div class="badge badge-success text-wrap" style="width: 6rem;">
+			Username:</div>
+
+		<div class="badge badge-success text-wrap" style="width: 18rem;"
+			th:text="${username}"></div>
+
+		<br>
+
+		<div class="badge badge-success text-wrap" style="width: 6rem;">
+			Roles:</div>
+
+		<div class="badge badge-success text-wrap" style="width: 18rem;"
+			th:text="${roles}"></div>
+
+		<br> <br>
+		
+		 -->
+
+		<!-- Add button -->
+		<a th:href="@{/cliente/mostrarFormParaAnadir}"
+			class="btn btn-primary btn-sm mb-3"> Añadir Cliente</a>
+	
+		<!-- Tables -->
+
+		<table class="table table-bordered table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th>Id</th>
+					<th>Nombre</th>
+					<th>Apellido</th>
+					<th>Dirección</th>
+					<th>Fecha de Nacimiento</th>
+					<th>Telefono</th>
+					<th>Email</th>
+					<th>Categoría</th>
+					<th>Acciones</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr th:each="tempCliente : ${clientes}">
+					<td th:text="${tempCliente.id}" />
+					<td th:text="${tempCliente.nombre}" />
+					<td th:text="${tempCliente.apellido}" />
+					<td th:text="${tempCliente.direccion}" />
+					<td th:text="${tempCliente.fechaNacimiento}" />
+					<td th:text="${tempCliente.telefono}" />
+					<td th:text="${tempCliente.email}" />
+					<td th:text="${tempCliente.categoria}" />
+	
+					<td><a
+						th:href="@{/cliente/mostrarFormParaActualizar(clienteId=${tempCliente.id})}"
+						class="btn btn-info btn-sm"> Actualizar</a> <a
+						th:href="@{/cliente/mostrarFormParaActualizar(clienteId=${tempCliente.id})}"
+						class="btn btn-danger btn-sm"
+						onclick="if (!(confirm('Are you sure you want to delete this employee?'))) return false">
+							Borrar</a></td>
+				</tr>
+
+			</tbody>
+
+		</table>
+		
+		<!-- User Register Button -->
+		<form action="#" th:action="@{/showRegisterForm}" method=POST>
+
+			<input type="submit" class="btn btn-outline-primary" value="Register New User" />
+
+		</form>
+		
+		<!-- Retorno al Indice -->
+		<br>
+		<a th:href="@{/}" class="btn btn-primary btn-sm mb-3"> Menu Principal</a>
+		
+		
+		<!-- Logout Button 
+		<form action="#" th:action="@{/logout}" method=POST>
+
+			<input type="submit" class="btn btn-outline-primary mt-3" value="Logout" />
+
+		</form>-->
+		
+	</div>
+
+</body>
+</html>
