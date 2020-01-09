@@ -74,9 +74,9 @@
 					<td><a
 						th:href="@{/cliente/mostrarFormParaActualizar(clienteId=${tempCliente.id})}"
 						class="btn btn-info btn-sm"> Actualizar</a> <a
-						th:href="@{/cliente/mostrarFormParaActualizar(clienteId=${tempCliente.id})}"
+						th:href="@{/cliente/borrar(clienteId=${tempCliente.id})}"
 						class="btn btn-danger btn-sm"
-						onclick="if (!(confirm('Are you sure you want to delete this employee?'))) return false">
+						onclick="if (!(confirm('¿Seguro que quieres borrar el siguiente registro?'))) return false">
 							Borrar</a></td>
 				</tr>
 

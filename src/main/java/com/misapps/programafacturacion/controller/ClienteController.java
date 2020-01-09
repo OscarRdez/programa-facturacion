@@ -48,4 +48,10 @@ public class ClienteController {
 		return "clientes/formularioAnadir";
 	}
 
+	@GetMapping("/borrar")
+	public String borrar(@RequestParam("clienteId") int elId) {
+		clienteService.deleteById(elId);
+		return "redirect:/cliente/lista";
+	}
+
 }
